@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "837294522662",
+    "firebase_url": "https://chatandlocation.firebaseio.com",
+    "project_id": "chatandlocation",
+    "storage_bucket": "chatandlocation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837294522662:android:e8af950f3ca395d1",
+        "android_client_info": {
+          "package_name": "klima.tomas.chatandlocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837294522662-f4c93269p3m53r4c5m5fc45dmhoq419o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "klima.tomas.chatandlocation",
+            "certificate_hash": "28b5f847e83cef47f4dc686526f1b2d09cb2bde0"
+          }
+        },
+        {
+          "client_id": "837294522662-gp27q52n07n1ckpbj26fmk8lfu5ma6c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT6wzjTdMyEFcr70OldBGTxZicQWVcyG8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837294522662-gp27q52n07n1ckpbj26fmk8lfu5ma6c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
