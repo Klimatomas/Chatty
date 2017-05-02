@@ -1,8 +1,12 @@
 <resources>
-	<string name="app_name">ChatAndLocation</string>
+	<string name="app_name">ChattY</string>
 	<string name="email">E-MAIL</string>
 	<string name="password">PASSWORD</string>
 	<string name="signup">Sign up</string>
 	<string name="signin">Sign in</string>
 	<string name="authfailed">Auth Failed</string>
+	<string name="registrationsucces">Registration successful!</string>
+	<string name="loginfailed">Login failed!</string>
+	<string name="title_activity_maps">Map</string>
+	<string name="title_activity_maps_s">Map</string>
 </resources>

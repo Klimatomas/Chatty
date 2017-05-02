@@ -4,6 +4,7 @@ buildscript {
     repositories {
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
+        mavenCentral()
 
     }
     dependencies {
@@ -17,12 +18,16 @@ buildscript {
     }
 }
 
+repositories {
+    mavenCentral()
+}
 allprojects {
     repositories {
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
