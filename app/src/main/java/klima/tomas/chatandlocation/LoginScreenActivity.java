@@ -1,5 +1,7 @@
 package klima.tomas.chatandlocation;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,24 +24,31 @@ public class LoginScreenActivity extends BaseActivity {
 	private FirebaseAuth mAuth;
 	private FirebaseAuth.AuthStateListener mAuthListener;
 
+	SharedPreferences sharedPreferences;
+	public static final String MyPREFERENCES = "MyPrefs" ;
+	public static final String Email = "emailKey";
+	public static final String Password = "passwordKey";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_screen);
 		ButterKnife.bind(this);
+		sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+		email.setText(sharedPreferences.getString(Email, Email));
+		password.setText(sharedPreferences.getString(Password, Password));
+
+
 
 		mAuth = FirebaseAuth.getInstance();
 
 		mAuthListener = firebaseAuth -> {
 			FirebaseUser user = firebaseAuth.getCurrentUser();
 			if (user != null) {
-				// User is signed in
 				Timber.d("onAuthStateChanged:signed_in:" + user.getUid());
 			} else {
-				// User is signed out
 				Timber.d("onAuthStateChanged:signed_out");
 			}
-			// ...
 		};
 	}
 
@@ -67,17 +76,12 @@ public class LoginScreenActivity extends BaseActivity {
 		mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
 				.addOnCompleteListener(this, task -> {
 					Timber.d("createUserWithEmail:onComplete:" + task.isSuccessful());
-
-					// If sign in fails, display a message to the user. If sign in succeeds
-					// the auth state listener will be notified and logic to handle the
-					// signed in user can be handled in the listener.
 					if (!task.isSuccessful()) {
 						Toast.makeText(LoginScreenActivity.this, R.string.authfailed, Toast.LENGTH_SHORT).show();
 
 					} else {
 						Toast.makeText(LoginScreenActivity.this, R.string.registrationsucces, Toast.LENGTH_SHORT).show();
 					}
-					// ...
 				});
 	}
 
@@ -89,13 +93,14 @@ public class LoginScreenActivity extends BaseActivity {
 		}
 		progressbar.setVisibility(View.VISIBLE);
 
+		SharedPreferences.Editor editor = sharedPreferences.edit();
+		editor.putString(Email, email.getText().toString()).apply();
+		editor.putString(Password, password.getText().toString()).apply();
+
 		mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
 				.addOnCompleteListener(this, task -> {
 					Timber.d("signInWithEmail:onComplete:" + task.isSuccessful());
 
-					// If sign in fails, display a message to the user. If sign in succeeds
-					// the auth state listener will be notified and logic to handle the
-					// signed in user can be handled in the listener.
 					if (!task.isSuccessful()) {
 						progressbar.setVisibility(View.GONE);
 

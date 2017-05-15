@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
-import klima.tomas.chatandlocation.Services.LocationService;
+import klima.tomas.chatandlocation.services.LocationService;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
